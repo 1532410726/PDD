@@ -1,5 +1,10 @@
 import uiautomator2 as u2
 import time
+# Android调试工具pip install uiautodev
+#
+# # 命令行启动后会自动打开浏览器
+# uiautodev
+# # or: python -m uiautodev
 
 
 def get_texts_from_xpath(d, xpath):
