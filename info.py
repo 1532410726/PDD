@@ -23,9 +23,9 @@ def get_texts_from_xpath(d, xpath):
 
 def parse_texts(texts):
     '''
-    第一个获取到的文案为标题，第二个为集数，倒数第二个为热度，第三个到倒数第三个之间为标签
+    第一个获取到的文案为剧名，第二个为集数，倒数第二个为热度，第三个到倒数第三个之间为标签
     :param texts:
-    :return: 标题、集数、热度、标签
+    :return: 剧名、集数、热度、标签
     '''
     title = texts[0] if len(texts) >= 1 else ""
     episode = texts[1] if len(texts) >= 2 else ""
@@ -40,7 +40,7 @@ def get_hot_rank_info(d, top_num):
     texts = get_texts_from_xpath(d, xpath)
     title, episode, heat, tags = parse_texts(texts)
 
-    print("标题：", title)
+    print("剧名：", title)
     print("集数：", episode)
     print("热度：", heat)
     print("标签：", tags)
@@ -48,15 +48,15 @@ def get_hot_rank_info(d, top_num):
 
 
 def get_woman_rank_info(d, top_num):
-    print(f"女生榜第{top_num}条数据")
     d.xpath('//*[@text="女生榜"]').click()
+    print(f"女生榜第{top_num}条数据")
     time.sleep(1)
 
     xpath = f'(//*[@resource-id="com.xunmeng.pinduoduo:id/pdd"])[3]/*[{top_num}]'
     texts = get_texts_from_xpath(d, xpath)
     title, episode, heat, tags = parse_texts(texts)
 
-    print("标题：", title)
+    print("剧名：", title)
     print("集数：", episode)
     print("热度：", heat)
     print("标签：", tags)
@@ -64,15 +64,15 @@ def get_woman_rank_info(d, top_num):
 
 
 def get_man_rank_info(d, top_num):
-    print(f"男生榜第{top_num}条数据")
     d.xpath('//*[@text="男生榜"]').click()
+    print(f"男生榜第{top_num}条数据")
     time.sleep(1)
 
     xpath = f'(//*[@resource-id="com.xunmeng.pinduoduo:id/pdd"])[3]/*[{top_num}]'
     texts = get_texts_from_xpath(d, xpath)
     title, episode, heat, tags = parse_texts(texts)
 
-    print("标题：", title)
+    print("剧名：", title)
     print("集数：", episode)
     print("热度：", heat)
     print("标签：", tags)
