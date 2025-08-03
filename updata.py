@@ -47,7 +47,7 @@ def parse_card_info(texts):
 def main():
     d = u2.connect()
     start_app(d)
-    for i in range(1, 4):  #前三个
+    for i in range(1, 3):  #前三个
         texts = get_card_texts(d, card_index=i)
         info = parse_card_info(texts)
         print(f"\n短剧热榜第{i}的榜单信息：")
@@ -58,3 +58,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
